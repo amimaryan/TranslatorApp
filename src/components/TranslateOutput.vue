@@ -1,5 +1,5 @@
 <template>
-<h2>{{translatedText}}</h2>
+<h2 class="text-success">{{translatedText}}</h2>
 </template>
 
 <script>

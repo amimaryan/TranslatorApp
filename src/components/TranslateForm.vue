@@ -1,14 +1,16 @@
 <template>
-  <div id="translateForm"> 
-     <form v-on:submit="formSubmit">
-        <input type="text" v-model="textToTranslate" placeholder="Enter a Word">
-<select v-model="language">
+  <div class="row" id="translateForm"> 
+     <div class="col-md-6 col-md-offset-3">
+     <form id="transForm" class="form-inline well" v-on:submit="formSubmit">
+        <input class="form-control" type="text" v-model="textToTranslate" placeholder="Enter a Word">
+<select class="form-control" v-model="language">
   <option v-for="(item, index) in languageList" :key="item.id" :value="index">
      {{item}}
   </option>
 </select>
-        <input type ="submit" value="Translate">
+        <input class="btn btn-primary" type ="submit" value="Translate">
      </form>
+     </div>
   </div>
 </template>
 
@@ -44,5 +46,8 @@ export default {
 </script>
 
 <style>
-
+#transForm{
+    border-radius: 10px;
+    border: 1px #ccc solid;
+}
 </style>
