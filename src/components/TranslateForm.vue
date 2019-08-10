@@ -29,12 +29,22 @@ export default {
     this.language = 'ru';
   },
   mounted(){
+
+    /*Uncomment below to get language list from third-party API*/
+    // this.$http
+    // .get('https://translate.yandex.net/api/v1.5/tr.json/getLangs?key=trnsl.1.1.20190713T213342Z.5252712e2b191a40.abd2008f8455d70eb027b956f49e43cca11ff77d&ui=en')
+    //     .then(response => {
+    //       console.log(response.body.langs);
+    //       this.languageList = response.body.langs;
+    //     });   
+
+    /*Uncomment below to get language list from custom build in-house API*/
     this.$http
-    .get('https://translate.yandex.net/api/v1.5/tr.json/getLangs?key=trnsl.1.1.20190713T213342Z.5252712e2b191a40.abd2008f8455d70eb027b956f49e43cca11ff77d&ui=en')
+    .get('https://localhost:5001/api/language/getlanguages')
         .then(response => {
-          console.log(response.body.langs);
-          this.languageList = response.body.langs;
-        });   
+          console.log(response.body);
+          this.languageList = response.body;
+        });  
   },
   methods: {
       formSubmit(e){
